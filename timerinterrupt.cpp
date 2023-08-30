@@ -6,8 +6,6 @@ volatile uint32_t lastMillis = 0;
 ESP32Timer ITimer(0);
 uint32_t timerCounter = 0;
 bool IRAM_ATTR TimerHandler(void * timerNo) {
-  Serial.print("Timer Interrupt Called");
-  Serial.println(timerCounter);
   timerCounter++;
 }
 void setup() {
@@ -28,5 +26,7 @@ void setup() {
  
 void loop() {
   Serial.println ("Loop Triggered");
+  Serial.print("Counter ");
+  Serial.println(timerCounter);
   delay(2000);
 }
